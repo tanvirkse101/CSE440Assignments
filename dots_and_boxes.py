@@ -129,10 +129,10 @@ def draw(player, x):
         return player
 
 
-devam = 'y'
-while devam in {'y', 'Y'}:
-    number = ["1", "2", "3", "4", "5", "6", "7"]
-    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T"]
+play = 'y'
+while play in {'y', 'Y'}:
+    number = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     direction = ["N", "S", "E", "W"]
 
     firstPlayer = input("Enter a character for first player: ")
@@ -146,13 +146,13 @@ while devam in {'y', 'Y'}:
     players = [firstPlayer, secondPlayer]
     player = players[0]
 
-    row = input("Enter row count [3-7]: ")
-    while not row.isdigit() or int(row) not in range(3, 19):
+    row = input("Enter row count [3-9]: ")
+    while not row.isdigit() or int(row) not in range(3, 10):
         row = input("Enter correct row count [3-7]: ")
     row = int(row)
 
-    column = input("Enter column count [3-19]: ")
-    while not column.isdigit() or int(column) not in range(3, 19):
+    column = input("Enter column count [3-25]: ")
+    while not column.isdigit() or int(column) not in range(3, 26):
         column = input("Enter correct column count [3-19]: ")
     column = int(column)
 
@@ -195,9 +195,9 @@ while devam in {'y', 'Y'}:
 
     while combination != []:
         print("Player", str(player), "please enter a coordinate: ", end="")
-        x = input()
+        x = input().upper()
         while len(x) != 5 or (x[0], x[2], x[4]) not in combination:
-            x = input("Please enter a correct coordinate: ")
+            x = input("Please enter a correct coordinate: ").upper()
 
         combination.remove((x[0], x[2], x[4]))
         if x[4] == "E":
@@ -221,6 +221,6 @@ while devam in {'y', 'Y'}:
         else:
             print("Draw")
 
-        devam = input("Do you want to play again (Y/y=yes N/n=no) ?")
-        while not devam in {'Y', 'y', 'N', 'n'}:
-            devam = input("Do you want to play again (Y/y) ?")
+        play = input("Do you want to play again (Y/y=yes N/n=no) ?")
+        while not play in {'Y', 'y', 'N', 'n'}:
+            play = input("Do you want to play again (Y/y) ?")
