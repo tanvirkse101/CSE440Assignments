@@ -147,7 +147,7 @@ while devam in {'y', 'Y'}:
     player = players[0]
 
     row = input("Enter row count [3-7]: ")
-    while not row.isdigit() or int(row) not in range(3, 8):
+    while not row.isdigit() or int(row) not in range(3, 19):
         row = input("Enter correct row count [3-7]: ")
     row = int(row)
 
